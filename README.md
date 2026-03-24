@@ -1,5 +1,9 @@
 # Lecture 6: ROS 2 Concepts & Building Software Packages
 
+
+https://github.com/user-attachments/assets/8124b78b-d82c-4339-b1e3-97d4fc210e88
+
+
 > DevOps for Cyber-Physical Systems | University of Bern
 
 Complete ROS2 Humble development environment with TurtleBot3 Burger simulation in Gazebo Classic, packaged as a VS Code Dev Container for cross-platform robotics development.
