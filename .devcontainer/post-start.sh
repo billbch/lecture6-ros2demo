@@ -73,7 +73,10 @@ fi
 echo "Building workspace... (first time: 2-3 minutes)"
 echo ""
 
-rm -rf build install log
+# Clean contents of build dirs (can't rm the dirs themselves — they're Docker volume mounts)
+find build/ -mindepth 1 -delete 2>/dev/null || true
+find install/ -mindepth 1 -delete 2>/dev/null || true
+find log/ -mindepth 1 -delete 2>/dev/null || true
 
 # On arm64 without Gazebo, skip simulation packages that would fail
 COLCON_ARGS="--symlink-install --parallel-workers $(nproc) --cmake-args -DCMAKE_BUILD_TYPE=Release"

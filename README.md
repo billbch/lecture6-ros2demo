@@ -6,6 +6,16 @@ Complete ROS2 Humble development environment with TurtleBot3 Burger simulation i
 
 > **Apple Silicon (M1/M2/M3) users:** Gazebo Classic 11 does not have arm64 packages for Ubuntu 22.04, and Gazebo Sim crashes in Docker on Apple Silicon due to lack of GPU passthrough. This means **Gazebo simulation will not work** on Apple Silicon Macs. Everything else (RViz, Nav2, SLAM, teleop, ROS2 tooling) works normally. For full simulation support, use an Intel/AMD machine or a cloud VM.
 
+> **GPU Passthrough:** The devcontainer uses `--gpus all` for NVIDIA GPU acceleration (requires [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html)). If this doesn't apply to you, comment out the `"runArgs"` line in `.devcontainer/devcontainer.json` before opening the container. The container will fall back to software rendering automatically.
+>
+> | Setup | GPU in container? | Action needed |
+> |---|---|---|
+> | Windows + NVIDIA | Yes | Works out of the box |
+> | Linux + NVIDIA | Yes | Works out of the box |
+> | Linux + AMD | Possible | Replace `runArgs` with `["--device", "/dev/dri:/dev/dri"]` |
+> | Windows + AMD | No | Comment out `runArgs` (no WSL2 support for AMD GPUs) |
+> | macOS (any) | No | Comment out `runArgs` |
+
 ---
 
 ## Table of Contents
